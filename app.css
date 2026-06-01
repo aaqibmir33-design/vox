@@ -1,0 +1,36 @@
+.app {
+  display: flex;
+  min-height: 100vh;
+  background: var(--color-bg-primary);
+}
+
+.app__main {
+  flex: 1;
+  margin-left: 260px;
+  display: flex;
+  flex-direction: column;
+  transition: margin-left var(--transition-base);
+}
+
+.app__main--expanded {
+  margin-left: 72px;
+}
+
+.app__content {
+  flex: 1;
+  padding: var(--space-8);
+  overflow-y: auto;
+  max-width: 1400px;
+}
+
+@media (max-width: 768px) {
+  .app__main {
+    margin-left: 0;
+  }
+  .app__main--expanded {
+    margin-left: 0;
+  }
+  .app__content {
+    padding: var(--space-4);
+  }
+}

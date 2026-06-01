@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="AURA - Premium AI Voice Clone Studio. Clone, synthesize, and manage voices with studio-grade precision." />
+    <meta name="theme-color" content="#0a0a0f" />
+    <meta name="color-scheme" content="dark" />
+
+    <!-- Preconnect to external resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/aura-icon.svg" />
+
+    <title>AURA // Premium Voice Clone Studio</title>
+
+    <style>
+      /* Critical CSS for instant render */
+      *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+      html { background: #0a0a0f; color: #e8e8f0; }
+      body { font-family: 'Inter', system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+      #root { min-height: 100vh; }
+
+      /* Loading state */
+      .app-loading {
+        position: fixed; inset: 0;
+        background: #0a0a0f;
+        display: flex; flex-direction: column;
+        align-items: center; justify-content: center;
+        z-index: 9999;
+      }
+      .app-loading__logo {
+        font-size: 2.5rem; font-weight: 800;
+        letter-spacing: 0.3em; color: #fff;
+        animation: pulse 2s ease-in-out infinite;
+      }
+      .app-loading__bar {
+        width: 200px; height: 2px;
+        background: rgba(255,255,255,0.1);
+        border-radius: 2px; margin-top: 2rem;
+        overflow: hidden;
+      }
+      .app-loading__bar::after {
+        content: ''; display: block;
+        width: 40%; height: 100%;
+        background: linear-gradient(90deg, #6366f1, #a855f7);
+        animation: loading-slide 1.5s ease-in-out infinite;
+      }
+      @keyframes pulse {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.5; }
+      }
+      @keyframes loading-slide {
+        0% { transform: translateX(-100%); }
+        100% { transform: translateX(350%); }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root">
+      <!-- Fallback loading state -->
+      <div class="app-loading">
+        <div class="app-loading__logo">AURA</div>
+        <div class="app-loading__bar"></div>
+      </div>
+    </div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
